@@ -24,7 +24,7 @@ function Home() {
               </p>
               <div>
                 <button
-                  class="text-lg flex items-center justify-center gap-3 select-none font-semibold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none py-2 px-6 rounded-lg bg-[#135D66] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+                  className="text-lg flex items-center justify-center gap-3 select-none font-semibold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none py-2 px-6 rounded-lg bg-[#135D66] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
                   type="submit"
                 >
                   Coba Gratis
@@ -87,14 +87,14 @@ function Home() {
               <div className="rounded-2xl border border-[#135D66] p-6 shadow-sm ring-1 ring-[#135D66] sm:px-8 lg:p-12">
                 <div className="text-center">
                   <h2 className="text-lg font-medium text-gray-900">Free</h2>
-                  <p className="mt-2 sm:mt-4">
+                  <div className="mt-2 sm:mt-4">
                     <p className="text-3xl font-bold text-gray-900 sm:text-4xl">
                       Rp.0
                     </p>
                     <span className="text-sm font-medium text-gray-700">
                       /bulan
                     </span>
-                  </p>
+                  </div>
                 </div>
                 <ul className="mt-6 space-y-2">
                   <li className="flex items-center gap-1">
@@ -124,14 +124,14 @@ function Home() {
               <div className="rounded-2xl border border-[#135D66] p-6 shadow-sm ring-1 ring-[#135D66] sm:px-8 lg:p-12">
                 <div className="text-center">
                   <h2 className="text-lg font-medium text-gray-900">Free</h2>
-                  <p className="mt-2 sm:mt-4">
+                  <div className="mt-2 sm:mt-4">
                     <p className="text-3xl font-bold text-gray-900 sm:text-4xl">
                       Rp.0
                     </p>
                     <span className="text-sm font-medium text-gray-700">
                       /bulan
                     </span>
-                  </p>
+                  </div>
                 </div>
                 <ul className="mt-6 space-y-2">
                   <li className="flex items-center gap-1">

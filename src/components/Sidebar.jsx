@@ -71,7 +71,7 @@ export default function SidebarComp() {
                   <ul className="py-1" role="none">
                     <li>
                       <a
-                   href="#"
+                   href="/"
                         className="block px-4 py-2 text-sm text-gray-700 hover:text-white      "
                         role="menuitem"
                       >
@@ -80,7 +80,7 @@ export default function SidebarComp() {
                     </li>
                     <li>
                       <a
-                   href="#"
+                   href="/"
                         className="block px-4 py-2 text-sm text-gray-700 hover:text-white      "
                         role="menuitem"
                       >
@@ -89,7 +89,7 @@ export default function SidebarComp() {
                     </li>
                     <li>
                       <a
-                   href="#"
+                   href="/"
                         className="block px-4 py-2 text-sm text-gray-700 hover:text-white      "
                         role="menuitem"
                       >
@@ -98,7 +98,7 @@ export default function SidebarComp() {
                     </li>
                     <li>
                       <a
-                   href="#"
+                   href="/"
                         className="block px-4 py-2 text-sm text-gray-700 hover:text-white      "
                         role="menuitem"
                       >
@@ -172,19 +172,19 @@ export default function SidebarComp() {
             </button>
             <ul id="dropdown-example" className="hidden py-2 space-y-2">
                   <li>
-                     <a href="#" className="flex items-center w-full p-2 text-gray-300 hover:text-white transition duration-75 rounded-lg pl-11 group">Contact</a>
+                     <a href="/" className="flex items-center w-full p-2 text-gray-300 hover:text-white transition duration-75 rounded-lg pl-11 group">Contact</a>
                   </li>
                   <li>
-                     <a href="#" className="flex items-center w-full p-2 text-gray-300 hover:text-white transition duration-75 rounded-lg pl-11 group">Group</a>
+                     <a href="/" className="flex items-center w-full p-2 text-gray-300 hover:text-white transition duration-75 rounded-lg pl-11 group">Group</a>
                   </li>
                   <li>
-                     <a href="#" className="flex items-center w-full p-2 text-gray-300 hover:text-white transition duration-75 rounded-lg pl-11 group">WA Grroup</a>
+                     <a href="/" className="flex items-center w-full p-2 text-gray-300 hover:text-white transition duration-75 rounded-lg pl-11 group">WA Grroup</a>
                   </li>
             </ul>
          </li>
             <li>
               <a
-           href="#"
+           href="/"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg
@@ -204,7 +204,7 @@ export default function SidebarComp() {
             </li>
             <li>
               <a
-           href="#"
+           href="/"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg
@@ -221,7 +221,7 @@ export default function SidebarComp() {
             </li>
             <li>
               <a
-           href="#"
+           href="/"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg
@@ -239,7 +239,7 @@ export default function SidebarComp() {
             
             <li>
               <a
-           href="#"
+           href="/"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg
@@ -262,7 +262,7 @@ export default function SidebarComp() {
             </li>
             <li>
               <a
-           href="#"
+           href="/"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg

@@ -50,11 +50,7 @@ export default function SidebarComp() {
                     data-dropdown-toggle="dropdown-user"
                   >
                     <span className="sr-only">Open user menu</span>
-                    <img
-                      className="w-8 h-8 rounded-full"
-                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-                      alt="user photo"
-                    />
+                    
                   </button>
                 </div>
                 <div
@@ -128,7 +124,7 @@ export default function SidebarComp() {
               Main Feature
             </span>
             <li>
-              <a href="/"
+              <a href="/dashboard"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg

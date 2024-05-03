@@ -1,13 +1,14 @@
-import { faAddressBook, faCheckSquare } from "@fortawesome/free-regular-svg-icons";
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons/faCheckCircle";
 import { faComputer, faLink } from "@fortawesome/free-solid-svg-icons";
-import { faCheckDouble } from "@fortawesome/free-solid-svg-icons/faCheckDouble";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SidebarComp from "../components/Sidebar"
 import React from "react";
 
 export default function device() {
   return (
-    <div>
+    <>
+    <SidebarComp />
+    <div className="p-4 mt-12 sm:ml-64 bg-[#F4F4F4]">
       <div className="grid md:grid-cols-3 gap-4 my-4">
         <div className="flex items-center justify-start px-3 h-24 rounded bg-gray-50  ">
           <p>
@@ -50,21 +51,27 @@ export default function device() {
         </div>
         
       </div>
-      <div>
-        <div className="flex justify-between bg-gray-50 rounded-md p-3">
-          <div>
-            <span>
+      <div className="bg-gray-50 rounded-md p-3">
+        <div className="flex justify-between border-b-2">
+          <div className="content-center p-3">
+            <div className="text-2xl font-semibold">
               Device
-            </span>
+            </div>
           </div>
-          <div>
-          <button type="button" class="border ordber-gray-300 focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  bg-gray-800  text-white  border-gray-600  hover:bg-gray-700  hover:border-gray-600  focus:ring-gray-700">
+          <div className="content-center">
+            <div>
+               <button type="button" className="border ordber-gray-300 focus:outline-none focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5  bg-gray-800  text-white  border-gray-600  hover:bg-gray-700  hover:border-gray-600  focus:ring-gray-700">
             Add Device
           </button>
-
+            </div>
           </div>
+        </div>
+        <div className="mt-2 p-3">
+          
         </div>
       </div>
     </div>
+    </>
+    
   );
 }

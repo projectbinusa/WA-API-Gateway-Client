@@ -5,7 +5,7 @@ import Dashboard from "./pages/dashboard";
 import Device from "./pages/device";
 import Login from "../src/auth/Login";
 import Register from "../src/auth/Register";
-import Home from "./page/Home";
+import Home from "./pages/Home";
 import { useEffect } from "react";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faAddressBook } from "@fortawesome/free-regular-svg-icons";
@@ -23,8 +23,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/device" element={<Device />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/device" element={<Device />} />
           </Routes>
         </BrowserRouter>
       </div>

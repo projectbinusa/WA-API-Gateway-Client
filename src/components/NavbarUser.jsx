@@ -11,7 +11,7 @@ function Navbar() {
         </div>
         <div className="link flex items-center gap-5">
           <p className="text-lg font-semibold">Harga</p>
-          <p className="text-lg font-semibold">FItur</p>
+          <p className="text-lg font-semibold">Fitur</p>
           <p className="text-lg font-semibold">FAQ</p>
           <p className="text-lg font-semibold">
             <button

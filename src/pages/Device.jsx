@@ -1,12 +1,18 @@
 import { faCheckCircle } from "@fortawesome/free-regular-svg-icons/faCheckCircle";
 import {
+  faCartShopping,
   faComputer,
   faLink,
+  faLock,
   faMessage,
+  faMinus,
+  faPenToSquare,
+  faPlug,
+  faTrash,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import SidebarComp from "../components/Sidebar";
+// import SidebarComp from "../components/Sidebar";
 import React, { useState } from "react";
 import { faPlus } from "@fortawesome/free-solid-svg-icons/faPlus";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
@@ -29,8 +35,8 @@ export default function Device() {
   };
   return (
     <>
-      <SidebarComp />
-      <div className="p-4 mt-12 sm:ml-64 bg-[#F4F4F4]">
+      {/* <SidebarComp /> */}
+      <div className="">
         <div className="grid md:grid-cols-3 gap-4 my-4">
           <div className="flex items-center justify-start px-3 h-24 rounded bg-gray-50  ">
             <div>
@@ -156,7 +162,10 @@ export default function Device() {
                       </div>
                       <div className="flex items-center gap-2 text-gray-700">
                         <div className="py-2">
-                          <FontAwesomeIcon icon={faMessage} className="w-4 h-4" />
+                          <FontAwesomeIcon
+                            icon={faMessage}
+                            className="w-4 h-4"
+                          />
                         </div>
                         <div className="py-2 text-xs">8.172</div>
                       </div>
@@ -174,39 +183,39 @@ export default function Device() {
                       <div className="flex gap-2">
                         <button
                           type="button"
-                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-gray-800  text-white  border-gray-600  hover:bg-gray-700  hover:border-gray-600  focus:ring-gray-700"
+                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-[#2361CE]  text-white  border-gray-600 "
                         >
-                          <FontAwesomeIcon icon={faPlus} /> Reconnect
+                          <FontAwesomeIcon icon={faPlug} /> Reconnect
                         </button>
                         <button
                           type="button"
-                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-gray-800  text-white  border-gray-600  hover:bg-gray-700  hover:border-gray-600  focus:ring-gray-700"
+                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-[#E11D48]  text-white  border-gray-600"
                         >
-                          <FontAwesomeIcon icon={faPlus} /> Disconnect
+                          <FontAwesomeIcon icon={faMinus} /> Disconnect
                         </button>
                         <button
                           type="button"
-                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-gray-800  text-white  border-gray-600  hover:bg-gray-700  hover:border-gray-600  focus:ring-gray-700"
+                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-[#31316A]  text-white  border-gray-600"
                         >
-                          <FontAwesomeIcon icon={faPlus} /> Order
+                          <FontAwesomeIcon icon={faCartShopping} /> Order
                         </button>
                         <button
                           type="button"
-                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-gray-800  text-white  border-gray-600  hover:bg-gray-700  hover:border-gray-600  focus:ring-gray-700"
+                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-[#1F2937]  text-white  border-gray-600"
                         >
-                          <FontAwesomeIcon icon={faPlus} /> Token
+                          <FontAwesomeIcon icon={faLock} /> Token
                         </button>
                         <button
                           type="button"
-                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-gray-800  text-white  border-gray-600  hover:bg-gray-700  hover:border-gray-600  focus:ring-gray-700"
+                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-[#3d7ce8]  text-white  border-gray-600"
                         >
-                          <FontAwesomeIcon icon={faPlus} /> Edit
+                          <FontAwesomeIcon icon={faPenToSquare} /> Edit
                         </button>
                         <button
                           type="button"
-                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-gray-800  text-white  border-gray-600  hover:bg-gray-700  hover:border-gray-600  focus:ring-gray-700"
+                          className="border focus:outline-none focus:ring-4 font-medium rounded-lg text-xs px-3 py-2  bg-red-600  text-white  border-gray-600"
                         >
-                          <FontAwesomeIcon icon={faPlus} /> Delete
+                          <FontAwesomeIcon icon={faTrash} /> Delete
                         </button>
                       </div>
                     </td>
@@ -216,6 +225,18 @@ export default function Device() {
             </div>
           </div>
         </div>
+        <footer className="bg-white rounded-lg shadow d my-4">
+          <div className="w-full max-w-screen-xl mx-auto p-4 md:py-4">
+            <hr className="my-4 border-gray-200 sm:mx-auto lg:my-6" />
+            <span className="block text-sm text-gray-500 sm:text-center">
+              © 2024{" "}
+              <a href="https://flowbite.com/" className="hover:underline">
+                Made With
+              </a>
+              . In Binusa.
+            </span>
+          </div>
+        </footer>
       </div>
 
       {/* Add Modal */}
@@ -296,7 +317,10 @@ export default function Device() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="" className="text-md font-medium text-gray-900">
+                    <label
+                      htmlFor=""
+                      className="text-md font-medium text-gray-900"
+                    >
                       Chat Bot
                     </label>
                     <label className="mt-2 flex items-center cursor-pointer">
@@ -325,7 +349,10 @@ export default function Device() {
                     </div>
                   </div>
                   <div className="my-2">
-                    <label htmlFor="" className="text-md font-medium text-gray-900">
+                    <label
+                      htmlFor=""
+                      className="text-md font-medium text-gray-900"
+                    >
                       Personal
                     </label>
                     <label className="mt-2 flex items-center cursor-pointer">
@@ -352,7 +379,10 @@ export default function Device() {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="" className="text-md font-medium text-gray-900">
+                    <label
+                      htmlFor=""
+                      className="text-md font-medium text-gray-900"
+                    >
                       Group
                     </label>
                     <label className="mt-2 flex items-center cursor-pointer">

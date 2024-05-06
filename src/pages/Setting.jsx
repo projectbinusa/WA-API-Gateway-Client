@@ -41,7 +41,7 @@ function Setting() {
                   <FontAwesomeIcon icon={faComment} />
                 </span>
                 <input
-                  className="appearance-none border border-gray-200 border-gray-200 rounded-r-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="appearance-none border border-gray-200 rounded-r-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="name"
                   id="name"
                   type="text"

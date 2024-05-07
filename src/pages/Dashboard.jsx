@@ -11,6 +11,7 @@ HighchartsExporting(Highcharts);
 export default function dashboard() {
   const options = {
     chart: {
+      height: 350,
       type: "pie",
     },
     title: {
@@ -66,16 +67,16 @@ export default function dashboard() {
     <>
       {/* <SidebarComp /> */}
       <div className="p-4 bg-[#F4F4F4]">
-        <div className="flex justify-between p-3">
-          <div className="p-2">
+        <div className="flex justify-between">
+          <div className="p-1">
             <span className="text-2xl font-semibold">Dashboard</span>
           </div>
-          <div className="flex p-2 gap-4">
+          <div className="flex p-2 gap-3">
             <div>
-              <form class="max-w-sm mx-auto">
+              <form className="max-w-sm mx-auto">
                 <select
                   id="countries"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
                 >
                   <option selected>Semua CS</option>
                   <option value="US">United States</option>
@@ -95,9 +96,9 @@ export default function dashboard() {
             </div>
           </div>
         </div>
-        <div className="grid md:grid-cols-4 gap-4 my-4">
-          <div className="flex items-center px-3 rounded bg-gray-50 ">
-            <div className="w-full p-3 ">
+        <div className="grid md:grid-cols-4 gap-3 my-2">
+          <div className="flex items-center px-3 rounded-md bg-gray-50">
+            <div className="w-full p-3">
               <div className="text-lg text-gray-800">Daily</div>
               <div className="flex justify-between">
                 <div className="text-4xl">
@@ -161,17 +162,17 @@ export default function dashboard() {
             </div>
           </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="w-full p-4 bg-gray-50 rounded-md border">
-            <div className="mixed-chart">
+        <div className="grid md:grid-cols-2 gap-3">
+          <div className="w-full h-96 p-4 bg-gray-50 rounded-md border">
+            <div>
               <HighchartsReact
                 highcharts={Highcharts}
                 options={options}
-                width={150}
+                
               />
             </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-3">
             <div className="w-full p-4 bg-gray-50 rounded-md border">
               <div className="p-2">
                 <span className="text-lg">Avg Chat</span>

@@ -35,6 +35,26 @@ export default function SidebarComp() {
                 </span>
               </a>
             </div>
+            <div className="flex items-center">
+          <div className="flex items-center ms-3">
+            <div>
+              <button type="button" className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300" aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                <span className="sr-only">Open user menu</span>
+                <img className="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo" />
+              </button>
+            </div>
+            <div className="z-50 hidden w-40 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow" id="dropdown-user">
+              <ul className="py-1" role="none">
+                <li>
+                  <a href="/dashboard/setting" className="block px-4 py-2 text-center text-sm text-gray-700 hover:bg-gray-100  hover:text-gray-800" role="menuitem">Profile</a>
+                </li>
+                <li>
+                  <a href="#" className="block px-4 py-2 text-sm text-center text-gray-700 hover:bg-gray-100  hover:text-gray-800" role="menuitem">Logout</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </nav>
@@ -66,7 +86,7 @@ export default function SidebarComp() {
                 <span className="ms-3">Dashboard</span>
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
            href="/dashboard/device"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
@@ -83,8 +103,8 @@ export default function SidebarComp() {
                 <span className="flex-1 ms-3 whitespace-nowrap">Device</span>
                
               </a>
-            </li>
-            
+            </li> */}
+
             <li>
               <a
            href="/dashboard/customer"

@@ -1,6 +1,9 @@
 import React from "react";
 
 export default function SidebarComp() {
+  const logout = () => {
+    localStorage.clear();
+  };
   return (
     <div>
       <nav className="fixed top-0 z-50 w-full bg-[#135D66] border-b border-gray-200    ">
@@ -67,12 +70,14 @@ export default function SidebarComp() {
                       </a>
                     </li>
                     <li>
-                      <p
+                      <a
                         className="cursor-pointer block px-4 py-2 text-sm text-center text-gray-700 hover:bg-gray-100  hover:text-gray-800"
                         role="menuitem"
+                        href="/"
+                        onClick={logout}
                       >
                         Logout
-                      </p>
+                      </a>
                     </li>
                   </ul>
                 </div>

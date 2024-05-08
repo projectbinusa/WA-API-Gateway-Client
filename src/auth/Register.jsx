@@ -9,7 +9,13 @@ function Register() {
     <>
       <div className="all bg-[#F4F4F4] h-screen w-screen flex items-center justify-center py-10">
         <div className="container sm:w-4/5 md:w-3/5 lg:w-2/5 mx-5">
-          <div className="card py-5 bg-[#fdfdfd] rounded-xl shadow-md px-5 md:px-10 lg:px-16">
+          <p className="text-lg flex items-center justify-center gap-3">
+            <span className="mt-[1.5px]">
+              <FontAwesomeIcon icon={faArrowLeftLong} />
+            </span>{" "}
+            Back to homepage
+          </p>
+          <div className="mt-3 card py-5 bg-[#fdfdfd] rounded-xl shadow-md px-5 md:px-10 lg:px-16">
             <p className="text-center text-3xl font-semibold">Create Account</p>
             <form action="">
               <div className="mt-6">
@@ -62,7 +68,7 @@ function Register() {
                   className="w-full flex items-center justify-center gap-3 select-none font-semibold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none py-2 px-6 rounded-lg bg-[#135D66] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
                   type="submit"
                 >
-                  Login
+                  Register
                   <span className="mt-[1.5px]">
                     <FontAwesomeIcon icon={faArrowRightLong} />
                   </span>{" "}
@@ -70,14 +76,8 @@ function Register() {
               </div>
             </form>
             <p className="text-center text-lg mt-6">
-              Not registered?{" "}
-              <span className="font-semibold">Create account</span>
-            </p>
-            <p className="text-lg mt-6 flex items-center justify-center gap-3">
-              <span className="mt-[1.5px]">
-                <FontAwesomeIcon icon={faArrowLeftLong} />
-              </span>{" "}
-              Back to homepage
+              Already have an account?{" "}
+              <span className="font-semibold">Login here</span>
             </p>
           </div>
         </div>

@@ -36,25 +36,48 @@ export default function SidebarComp() {
               </a>
             </div>
             <div className="flex items-center">
-          <div className="flex items-center ms-3">
-            <div>
-              <button type="button" className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                <span className="sr-only">Open user menu</span>
-                <img className="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo" />
-              </button>
+              <div className="flex items-center ms-3">
+                <div>
+                  <button
+                    type="button"
+                    className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
+                    aria-expanded="false"
+                    data-dropdown-toggle="dropdown-user"
+                  >
+                    <span className="sr-only">Open user menu</span>
+                    <img
+                      className="w-8 h-8 rounded-full"
+                      src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                      alt="user"
+                    />
+                  </button>
+                </div>
+                <div
+                  className="z-50 hidden w-40 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow"
+                  id="dropdown-user"
+                >
+                  <ul className="py-1" role="none">
+                    <li>
+                      <a
+                        href="/dashboard/setting"
+                        className="block px-4 py-2 text-center text-sm text-gray-700 hover:bg-gray-100  hover:text-gray-800"
+                        role="menuitem"
+                      >
+                        Profile
+                      </a>
+                    </li>
+                    <li>
+                      <p
+                        className="cursor-pointer block px-4 py-2 text-sm text-center text-gray-700 hover:bg-gray-100  hover:text-gray-800"
+                        role="menuitem"
+                      >
+                        Logout
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div className="z-50 hidden w-40 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow" id="dropdown-user">
-              <ul className="py-1" role="none">
-                <li>
-                  <a href="/dashboard/setting" className="block px-4 py-2 text-center text-sm text-gray-700 hover:bg-gray-100  hover:text-gray-800" role="menuitem">Profile</a>
-                </li>
-                <li>
-                  <a href="#" className="block px-4 py-2 text-sm text-center text-gray-700 hover:bg-gray-100  hover:text-gray-800" role="menuitem">Logout</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
           </div>
         </div>
       </nav>
@@ -66,11 +89,10 @@ export default function SidebarComp() {
       >
         <div className="h-full px-3 pb-4 overflow-y-auto bg-[#135D66]  ">
           <ul className="space-y-2 font-medium">
-            <span className="text-gray-300 text-xl">
-              Main Feature
-            </span>
+            <span className="text-gray-300 text-xl">Main Feature</span>
             <li>
-              <a href="/dashboard"
+              <a
+                href="/dashboard"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg
@@ -107,7 +129,7 @@ export default function SidebarComp() {
 
             <li>
               <a
-           href="/dashboard/customer"
+                href="/dashboard/customer"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg
@@ -120,12 +142,11 @@ export default function SidebarComp() {
                   <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z" />
                 </svg>
                 <span className="flex-1 ms-3 whitespace-nowrap">Customer</span>
-                
               </a>
             </li>
             <li>
               <a
-           href="/dashboard/agen"
+                href="/dashboard/agen"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg
@@ -142,7 +163,7 @@ export default function SidebarComp() {
             </li>
             <li>
               <a
-           href="/"
+                href="/"
                 className="flex items-center p-2 text-gray-300 rounded-lg hover:text-white group"
               >
                 <svg
@@ -154,7 +175,9 @@ export default function SidebarComp() {
                 >
                   <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                 </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Convertation</span>
+                <span className="flex-1 ms-3 whitespace-nowrap">
+                  Convertation
+                </span>
               </a>
             </li>
           </ul>

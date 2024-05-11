@@ -4,8 +4,62 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { url_customer } from "../utils/baseURL";
+
+const authorization = {
+  headers: {
+    'Authorization': `jwt ${localStorage.getItem('token')}`,
+
+  }
+};
 
 function Customer() {
+  const [customer, setCustomer] = useState([]);
+
+  const response = [
+    {
+      "id": 13,
+      "user_id": 3,
+      "remote_id": "628562213672@c.us",
+      "email": "email",
+      "name": "budi 3",
+      "hp": "628562213672",
+      "picture": "-",
+      "address": "Semarang",
+      "agent_id": 0,
+      "created_date": "2024-05-11 04:03:35",
+      "updated_date": "2024-05-11 04:03:35"
+  },
+  {
+      "id": 14,
+      "user_id": 3,
+      "remote_id": "628562213672@c.us",
+      "email": "email",
+      "name": "budiono siregar",
+      "hp": "628562213672",
+      "picture": "-",
+      "address": "Semarang",
+      "agent_id": 0,
+      "created_date": "2024-05-11 04:04:51",
+      "updated_date": "2024-05-11 04:04:51"
+  }
+  ];
+
+  const getDataCustomer = async () => {
+    try {
+      // const response = await axios.get(`${url_customer}`, authorization);
+      setCustomer(response)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() =>{
+    getDataCustomer();
+  }, []);
+
   return (
     <>
       <div className="all card py-5 bg-[#fdfdfd] rounded-xl shadow-md">
@@ -29,12 +83,15 @@ function Customer() {
             </thead>
 
             <tbody>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap p-4 text-left text-blueGray-700 ">
-                  1
+              {customer.map((datas, idx) =>{
+                return(
+                  <>
+                  <tr key={idx}>
+                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap p-4 text-left text-blueGray-700">
+                  {idx + 1}
                 </th>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 whitespace-nowrap p-4 ">
-                  Agus Supriadi
+                  {datas.name}
                 </td>
                 <td className="flex gap-3 justify-center border-t-0 px-6 align-center border-l-0 border-r-0 whitespace-nowrap p-4">
                   <FontAwesomeIcon
@@ -51,6 +108,10 @@ function Customer() {
                   />
                 </td>
               </tr>
+                  </>
+                )
+              })}
+              
             </tbody>
           </table>
         </div>

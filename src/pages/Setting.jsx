@@ -16,15 +16,15 @@ import { url_profile } from "../utils/baseURL";
 
 const authorization = {
   headers: {
-    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-    'Accept':'application/json',
-    'Content-Type' :'application/json'
+    'Authorization': `jwt ${localStorage.getItem('token')}`,
+
   }
 };
 
 const Setting = () => {
 
   const [passwordType, setPasswordType] = useState("password");
+  const [profile, setProfile] = useState([]);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [birth_date, setBirth_date] = useState('');
@@ -36,7 +36,6 @@ const Setting = () => {
   const [organization_name, setOrganization_name] = useState('');
   const [organization_address, setOrganization_address] = useState('');
 
-  // console.log(authorization);
  
   const togglePassword = () => {
     if (passwordType === "password") {
@@ -46,6 +45,10 @@ const Setting = () => {
     setPasswordType("password");
   };
   
+
+  console.log("token =>", authorization)
+  console.log("Endpoint =>", url_profile);
+
   const response = [
     {
       name: "Choy",
@@ -63,20 +66,21 @@ const Setting = () => {
   
   const getProfile = async () =>{
     try {
-      // const response = await axios.get(url_profile, authorization);
-      // console.log(profile);
-      const data = response[0];
-      console.log("data", data);
-      setName(data.name);
-      setAddress(data.address);
-      setBirth_date(data.birth_date);
-      setBirth_place(data.birth_place);
-      setPicture(data.picture);
-      setDescription(data.description);
-      setHp(data.hp);
-      setTag(data.tag);
-      setOrganization_name(data.organization_name);
-      setOrganization_address(data.organization_address);
+      const response = await axios.get(`${url_profile}`, authorization);
+      setProfile(response.data)
+      console.log(profile);
+      // const data = response[0];
+      // console.log("data", data);
+      // setName(data.name);
+      // setAddress(data.address);
+      // setBirth_date(data.birth_date);
+      // setBirth_place(data.birth_place);
+      // setPicture(data.picture);
+      // setDescription(data.description);
+      // setHp(data.hp);
+      // setTag(data.tag);
+      // setOrganization_name(data.organization_name);
+      // setOrganization_address(data.organization_address);
     } catch (error) {
       console.log(error);
     }
@@ -107,6 +111,7 @@ const Setting = () => {
   useEffect(() => {
     getProfile();
   }, []);
+  
   return (
     <>
       <div className="all card py-5 bg-[#fdfdfd] rounded-xl shadow-md">

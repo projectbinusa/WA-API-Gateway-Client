@@ -46,6 +46,7 @@ function Register() {
         localStorage.setItem("role", data.data.role);
         if (localStorage.getItem("role") === "agent") {
           navigate("/dashboard");
+          window.location.reload();
         } else {
           navigate("/");
         }
@@ -75,7 +76,7 @@ function Register() {
             </span>{" "}
             Back to homepage
           </p>
-          <div className="mt-3 card py-5 bg-[#fdfdfd] rounded-xl shadow-md px-5 md:px-10 lg:px-16">
+          <div className="mt-3 card py-5 bg-[#fdfdfd] rounded-xl shadow-md px-5 md:px-10">
             <p className="text-center text-3xl font-semibold">Login</p>
             <form onSubmit={login}>
               <div className="mt-6">
@@ -104,7 +105,7 @@ function Register() {
                 </label>
                 <div className="relative">
                   <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
                     name="password"
                     id="password"
                     type={passwordType}

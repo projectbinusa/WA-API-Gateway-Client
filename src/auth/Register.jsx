@@ -1,10 +1,66 @@
+import React, { useState } from "react";
 import {
   faArrowLeftLong,
   faArrowRightLong,
+  faEye,
+  faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { base_url } from "../utils/baseURL";
 
 function Register() {
+  const [passwordType, setPasswordType] = useState("password");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [address, setAddress] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const register = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      email: email,
+      name: name,
+      address: address,
+      hp: whatsapp,
+      password: password,
+    };
+
+    try {
+      await axios.post(`${base_url}/user/signup`, data);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Register Success!!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/login");
+    } catch (error) {
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Register tidak berhasil.",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      console.log(error);
+    }
+  };
+
+  const togglePassword = () => {
+    if (passwordType === "password") {
+      setPasswordType("text");
+      return;
+    }
+    setPasswordType("password");
+  };
   return (
     <>
       <div className="all bg-[#F4F4F4] h-screen w-screen flex items-center justify-center py-10">
@@ -15,10 +71,13 @@ function Register() {
             </span>{" "}
             Back to homepage
           </p>
-          <div className="mt-3 card py-5 bg-[#fdfdfd] rounded-xl shadow-md px-5 md:px-10 lg:px-16">
+          <div className="mt-3 card py-5 bg-[#fdfdfd] rounded-xl shadow-md px-5 md:px-10">
             <p className="text-center text-3xl font-semibold">Create Account</p>
-            <form action="">
-              <div className="mt-6">
+            <form
+              onSubmit={register}
+              className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6"
+            >
+              <div>
                 <label
                   className="block text-gray-600 font-semibold mb-2"
                   htmlFor="name"
@@ -31,9 +90,45 @@ function Register() {
                   id="name"
                   type="text"
                   placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="mt-6">
+              <div>
+                <label
+                  className="block text-gray-600 font-semibold mb-2"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
+                <input
+                  className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
+                  name="email"
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+              <div>
+                <label
+                  className="block text-gray-600 font-semibold mb-2"
+                  htmlFor="address"
+                >
+                  Address
+                </label>
+                <input
+                  className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
+                  name="address"
+                  id="address"
+                  type="text"
+                  placeholder="Address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              </div>
+              <div>
                 <label
                   className="block text-gray-600 font-semibold mb-2"
                   htmlFor="whatsapp"
@@ -44,26 +139,42 @@ function Register() {
                   className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
                   name="whatsapp"
                   id="whatsapp"
-                  type="text"
+                  type="number"
                   placeholder="Whatsapp"
+                  value={whatsapp}
+                  onChange={(e) => setWhatsapp(e.target.value)}
                 />
               </div>
-              <div className="mt-6">
+              <div className="col-span-1 md:col-span-2">
                 <label
                   className="block text-gray-600 font-semibold mb-2"
-                  htmlFor="country"
+                  htmlFor="password"
                 >
-                  Country
+                  Password
                 </label>
-                <select
-                  className="cursor-pointer shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
-                  name="country"
-                  id="country"
-                >
-                  <option value="Indonesia">Indonesia</option>
-                </select>
+                <div className="relative">
+                  <input
+                    className="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline"
+                    name="password"
+                    id="password"
+                    type={passwordType}
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <span
+                    className="absolute right-0 top-0 mt-2 mr-4 cursor-pointer text-gray-600 hover:text-gray-900"
+                    onClick={togglePassword}
+                  >
+                    {passwordType === "password" ? (
+                      <FontAwesomeIcon icon={faEye} />
+                    ) : (
+                      <FontAwesomeIcon icon={faEyeSlash} />
+                    )}
+                  </span>
+                </div>
               </div>
-              <div className="mt-6">
+              <div className="col-span-1 md:col-span-2">
                 <button
                   className="w-full flex items-center justify-center gap-3 select-none font-semibold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none py-2 px-6 rounded-lg bg-[#135D66] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
                   type="submit"

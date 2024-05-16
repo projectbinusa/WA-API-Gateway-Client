@@ -14,12 +14,12 @@ function Navbar() {
           <p className="text-lg font-semibold">Fitur</p>
           <p className="text-lg font-semibold">FAQ</p>
           <p className="text-lg font-semibold">
-            <button
+            <a
               className="w-full select-none font-semibold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none py-2 px-6 rounded-lg bg-[#135D66] text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-              type="submit"
+              href="login"
             >
               Masuk
-            </button>
+            </a>
           </p>
         </div>
       </div>

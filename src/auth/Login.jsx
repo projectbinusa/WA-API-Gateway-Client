@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { base_url } from "../utils/baseURL";
+import { url_login } from "../utils/baseURL";
 
 function Register() {
   const [passwordType, setPasswordType] = useState("password");
@@ -30,7 +30,7 @@ function Register() {
     e.preventDefault();
 
     try {
-      const { data, status } = await axios.post(`${base_url}/login`, {
+      const { data, status } = await axios.post(`${url_login}`, {
         email: email,
         password: password,
       });
@@ -46,7 +46,7 @@ function Register() {
         localStorage.setItem("role", data.data.role);
         if (localStorage.getItem("role") === "agent") {
           navigate("/dashboard");
-          window.location.reload();
+          // window.location.reload();
         } else {
           navigate("/");
         }
@@ -70,12 +70,15 @@ function Register() {
     <>
       <div className="all bg-[#F4F4F4] h-screen w-screen flex items-center justify-center py-10">
         <div className="container sm:w-4/5 md:w-3/5 lg:w-2/5 mx-5">
-          <p className="text-lg flex items-center justify-center gap-3">
+          <a
+            href="/"
+            className="text-lg flex items-center justify-center gap-3"
+          >
             <span className="mt-[1.5px]">
               <FontAwesomeIcon icon={faArrowLeftLong} />
             </span>{" "}
             Back to homepage
-          </p>
+          </a>
           <div className="mt-3 card py-5 bg-[#fdfdfd] rounded-xl shadow-md px-5 md:px-10">
             <p className="text-center text-3xl font-semibold">Login</p>
             <form onSubmit={login}>
@@ -139,7 +142,9 @@ function Register() {
             </form>
             <p className="text-center text-lg mt-6">
               Not registered?{" "}
-              <span className="font-semibold">Create account</span>
+              <a href="register" className="font-semibold">
+                Create account
+              </a>
             </p>
           </div>
         </div>

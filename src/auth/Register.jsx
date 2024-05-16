@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { base_url } from "../utils/baseURL";
+import { url_register } from "../utils/baseURL";
 
 function Register() {
   const [passwordType, setPasswordType] = useState("password");
@@ -33,7 +33,7 @@ function Register() {
     };
 
     try {
-      await axios.post(`${base_url}/user/signup`, data);
+      await axios.post(`${url_register}`, data);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -65,12 +65,15 @@ function Register() {
     <>
       <div className="all bg-[#F4F4F4] h-screen w-screen flex items-center justify-center py-10">
         <div className="container sm:w-4/5 md:w-3/5 lg:w-2/5 mx-5">
-          <p className="text-lg flex items-center justify-center gap-3">
+          <a
+            href="/"
+            className="text-lg flex items-center justify-center gap-3"
+          >
             <span className="mt-[1.5px]">
               <FontAwesomeIcon icon={faArrowLeftLong} />
             </span>{" "}
             Back to homepage
-          </p>
+          </a>
           <div className="mt-3 card py-5 bg-[#fdfdfd] rounded-xl shadow-md px-5 md:px-10">
             <p className="text-center text-3xl font-semibold">Create Account</p>
             <form
@@ -188,7 +191,9 @@ function Register() {
             </form>
             <p className="text-center text-lg mt-6">
               Already have an account?{" "}
-              <span className="font-semibold">Login here</span>
+              <a href="login" className="font-semibold">
+                Login here
+              </a>
             </p>
           </div>
         </div>

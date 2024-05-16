@@ -37,9 +37,15 @@ function App() {
             <Route path="/dashboard/device" element={<Device />} />
             <Route path="/dashboard/setting" element={<Setting />} />
             <Route path="/dashboard/customer" element={<Customer />} />
-            <Route path="/dashboard/chat-customer" element={<ChatCustomer />} />
+            <Route
+              path="/dashboard/chat-customer/:remot_id"
+              element={<ChatCustomer />}
+            />
             <Route path="/dashboard/agen" element={<Agen />} />
-            <Route path="/dashboard/chat-agen" element={<ChatAgen />} />
+            <Route
+              path="/dashboard/chat-agen/:remot_id"
+              element={<ChatAgen />}
+            />
           </Routes>
         </BrowserRouter>
       </div>

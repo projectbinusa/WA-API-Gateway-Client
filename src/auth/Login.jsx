@@ -46,7 +46,7 @@ function Register() {
         localStorage.setItem("role", data.data.role);
         if (localStorage.getItem("role") === "agent") {
           navigate("/dashboard");
-          // window.location.reload();
+          window.location.reload();
         } else {
           navigate("/");
         }

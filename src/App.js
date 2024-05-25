@@ -1,17 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Device from "./pages/Device";
+import Dashboard from "./pages/agent/Dashboard";
+import Device from "./pages/agent/Device";
 import Login from "../src/auth/Login";
 import Register from "../src/auth/Register";
 import Home from "./pages/Home";
 import { useEffect } from "react";
-import Setting from "./pages/Setting";
+import Setting from "./pages/agent/Setting";
 import { initFlowbite } from "flowbite";
-import SidebarComp from "./components/Sidebar";
-import Customer from "./pages/Customer";
-import ChatCustomer from "./pages/ChatCustomer";
+import SidebarCompAgent from "./components/SidebarAgent";
+import Customer from "./pages/agent/Customer";
+import ChatCustomer from "./pages/agent/ChatCustomer";
 import Agen from "./pages/Agen";
 import ChatAgen from "./pages/ChatAgen";
+// import PrivateUser from "./router/PrivateUser";
+// import PrivateRoute from "./router/PrivateRoute";
 
 function App() {
   const path = window.location.pathname.split("/")[1];
@@ -26,7 +28,7 @@ function App() {
 
   return (
     <>
-      {isDashboard && <SidebarComp />}
+      {isDashboard && <SidebarCompAgent />}
       <div className={contentClass}>
         <BrowserRouter>
           <Routes>
@@ -46,6 +48,16 @@ function App() {
               path="/dashboard/chat-agen/:remot_id"
               element={<ChatAgen />}
             />
+            {/* <Routes
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <PrivateUser>
+                    <Dashboard />
+                  </PrivateUser>
+                </PrivateRoute>
+              }
+            /> */}
           </Routes>
         </BrowserRouter>
       </div>

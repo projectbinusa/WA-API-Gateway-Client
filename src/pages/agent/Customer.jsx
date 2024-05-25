@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { url_agent } from "../utils/baseURL";
+import { url_agent_customer } from "../../utils/baseURL";
 
 const authorization = {
   headers: {
@@ -20,7 +20,7 @@ function Customer() {
   useEffect(() => {
     const getAll = () => {
       axios
-        .get(`${url_agent}`, authorization)
+        .get(`${url_agent_customer}`, authorization)
         .then((res) => {
           setCustomers(res.data.data);
           console.log(res.data.data);

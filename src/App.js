@@ -12,6 +12,7 @@ import Customer from "./pages/agent/Customer";
 import ChatCustomer from "./pages/agent/ChatCustomer";
 import Agen from "./pages/Agen";
 import ChatAgen from "./pages/ChatAgen";
+import ChangePassword from "./pages/agent/ChangePassword";
 // import PrivateUser from "./router/PrivateUser";
 // import PrivateRoute from "./router/PrivateRoute";
 
@@ -38,6 +39,10 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/device" element={<Device />} />
             <Route path="/dashboard/setting" element={<Setting />} />
+            <Route
+              path="/dashboard/change-password"
+              element={<ChangePassword />}
+            />
             <Route path="/dashboard/customer" element={<Customer />} />
             <Route
               path="/dashboard/chat-customer/:remot_id"

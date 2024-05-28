@@ -305,33 +305,6 @@ const Setting = () => {
             <div>
               <label
                 className="block text-gray-600 font-semibold mb-2"
-                htmlFor="password"
-              >
-                Change Password
-              </label>
-              <div className="flex">
-                <span
-                  className="cursor-pointer flex items-center justify-center border border-r-0 rounded-l-lg px-3 text-gray-600 hover:text-gray-900"
-                  onClick={togglePassword}
-                >
-                  {passwordType === "password" ? (
-                    <FontAwesomeIcon icon={faEye} />
-                  ) : (
-                    <FontAwesomeIcon icon={faEyeSlash} />
-                  )}
-                </span>
-                <input
-                  className="appearance-none border border-gray-200 rounded-r-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  name="password"
-                  id="password"
-                  type={passwordType}
-                  placeholder="Password"
-                />
-              </div>
-            </div>
-            <div>
-              <label
-                className="block text-gray-600 font-semibold mb-2"
                 htmlFor="token"
               >
                 Account Token
@@ -352,7 +325,7 @@ const Setting = () => {
                 This token is used for device API
               </p>
             </div>
-            <div>
+            <div className="col-span-2 -mt-5">
               <label
                 className="block text-gray-600 font-semibold mb-2"
                 htmlFor="timezone"
@@ -385,6 +358,9 @@ const Setting = () => {
                 </span>
                 Submit
               </button>
+              <div className="mt-3 text-right text-[#135D66] font-semibold">
+                <a href="change-password">Change Password</a>
+              </div>
             </div>
           </form>
         </div>

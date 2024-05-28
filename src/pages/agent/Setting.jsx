@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { url_agent_profile } from "../../utils/baseURL";
+import { useNavigate } from "react-router-dom";
 
 const authorization = {
   headers: {
@@ -25,17 +26,17 @@ const authorization = {
 
 const Setting = () => {
   const [passwordType, setPasswordType] = useState("password");
-  const [profile, setProfile] = useState([]);
-  // const [name, setName] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [birth_date, setBirth_date] = useState("");
-  // const [birth_place, setBirth_place] = useState("");
-  // const [picture, setPicture] = useState("");
-  // const [description, setDescription] = useState("");
-  // const [hp, setHp] = useState("");
-  // const [tag, setTag] = useState("");
-  // const [organization_name, setOrganization_name] = useState("");
-  // const [organization_address, setOrganization_address] = useState("");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [birth_date, setBirth_date] = useState("");
+  const [birth_place, setBirth_place] = useState("");
+  const [picture, setPicture] = useState("");
+  const [description, setDescription] = useState("");
+  const [hp, setHp] = useState("");
+  const [tag, setTag] = useState("");
+  const [organization_name, setOrganization_name] = useState("");
+  const [organization_address, setOrganization_address] = useState("");
+  const navigate = useNavigate();
 
   const togglePassword = () => {
     if (passwordType === "password") {
@@ -50,8 +51,16 @@ const Setting = () => {
       axios
         .get(`${url_agent_profile}`, authorization)
         .then((res) => {
-          setProfile(res.data.data);
+          const profile = res.data.data;
           console.log(res.data.data);
+          setName(profile.name);
+          setAddress(profile.address);
+          setBirth_date(profile.birth_date);
+          setBirth_place(profile.birth_place);
+          setDescription(profile.description);
+          setHp(profile.hp);
+          setOrganization_name(profile.organization_name);
+          setOrganization_address(profile.organization_address);
         })
         .catch((error) => {
           console.log("Terjadi kesalahan " + error);
@@ -60,6 +69,34 @@ const Setting = () => {
     getAll();
   }, []);
 
+  const edit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.put(
+        `${url_agent_profile}`,
+        {
+          name,
+          address,
+          birth_date,
+          birth_place,
+          picture,
+          description,
+          hp,
+          tag,
+          organization_name,
+          organization_address,
+        },
+        authorization
+      );
+
+      navigate();
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="all card py-5 bg-[#fdfdfd] rounded-xl shadow-md">
@@ -67,7 +104,7 @@ const Setting = () => {
           <h1 className="text-2xl font-semibold px-10">Settings</h1>
         </div>
         <div className="form px-16">
-          <form action="" className="grid grid-cols-2 gap-5 py-5">
+          <form onSubmit={edit} className="grid grid-cols-2 gap-5 py-5">
             <div>
               <label
                 className="block text-gray-600 font-semibold mb-2"
@@ -84,7 +121,8 @@ const Setting = () => {
                   name="name"
                   id="name"
                   type="text"
-                  value={profile.name}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
             </div>
@@ -105,7 +143,8 @@ const Setting = () => {
                   id="whatsapp"
                   type="text"
                   placeholder="Whatsapp"
-                  value={profile.hp}
+                  value={hp}
+                  onChange={(e) => setHp(e.target.value)}
                 />
               </div>
             </div>
@@ -126,7 +165,8 @@ const Setting = () => {
                   id="address"
                   type="text"
                   placeholder="address"
-                  value={profile.address}
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                 />
               </div>
             </div>
@@ -147,7 +187,8 @@ const Setting = () => {
                   id="birth_date"
                   type="text"
                   placeholder="birth_date"
-                  value={profile.birth_date}
+                  value={birth_date}
+                  onChange={(e) => setBirth_date(e.target.value)}
                 />
               </div>
             </div>
@@ -168,7 +209,8 @@ const Setting = () => {
                   id="birth_place"
                   type="text"
                   placeholder="birth_place"
-                  value={profile.birth_place}
+                  value={birth_place}
+                  onChange={(e) => setBirth_place(e.target.value)}
                 />
               </div>
             </div>
@@ -189,7 +231,8 @@ const Setting = () => {
                   id="description"
                   type="text"
                   placeholder="description"
-                  value={profile.description}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
             </div>
@@ -210,7 +253,8 @@ const Setting = () => {
                   id="organization_name"
                   type="text"
                   placeholder="Organization Name"
-                  value={profile.organization_name}
+                  value={organization_name}
+                  onChange={(e) => setOrganization_name(e.target.value)}
                 />
               </div>
             </div>
@@ -231,7 +275,8 @@ const Setting = () => {
                   id="organization_address"
                   type="text"
                   placeholder="Organization Address"
-                  value={profile.organization_address}
+                  value={organization_address}
+                  onChange={(e) => setOrganization_address(e.target.value)}
                 />
               </div>
             </div>

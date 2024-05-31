@@ -4,32 +4,37 @@ import Device from "./pages/agent/Device";
 import Login from "../src/auth/Login";
 import Register from "../src/auth/Register";
 import Home from "./pages/Home";
-import { useEffect } from "react";
 import Setting from "./pages/agent/Setting";
-import { initFlowbite } from "flowbite";
-import SidebarCompAgent from "./components/SidebarAgent";
 import Customer from "./pages/agent/Customer";
 import ChatCustomer from "./pages/agent/ChatCustomer";
-import Agen from "./pages/Agen";
-import ChatAgen from "./pages/ChatAgen";
+import Agent from "./pages/user/Agent";
+import ChatAgent from "./pages/user/ChatAgent";
 import ChangePassword from "./pages/agent/ChangePassword";
-// import PrivateUser from "./router/PrivateUser";
-// import PrivateRoute from "./router/PrivateRoute";
+import SidebarComp from "./components/Sidebar";
 
 function App() {
-  const path = window.location.pathname.split("/")[1];
-  const isDashboard = path === "dashboard";
-  const contentClass = isDashboard
+  const shouldShowSidebar = (pathname) => {
+    const dashboardPaths = [
+      "/dashboard",
+      "/dashboard/device",
+      "/dashboard/setting",
+      "/dashboard/change-password",
+      "/dashboard/customer",
+      "/dashboard/chat-customer",
+      "/user/agent",
+      "/user/chat-agent",
+    ];
+
+    return dashboardPaths.includes(pathname);
+  };
+
+  const contentClass = shouldShowSidebar(window.location.pathname)
     ? "p-4 mt-12 sm:ml-64 bg-[#F4F4F4] min-h-screen"
     : "";
 
-  useEffect(() => {
-    initFlowbite();
-  }, []);
-
   return (
     <>
-      {isDashboard && <SidebarCompAgent />}
+      {shouldShowSidebar(window.location.pathname) && <SidebarComp />}
       <div className={contentClass}>
         <BrowserRouter>
           <Routes>
@@ -48,21 +53,8 @@ function App() {
               path="/dashboard/chat-customer/:remot_id"
               element={<ChatCustomer />}
             />
-            <Route path="/dashboard/agen" element={<Agen />} />
-            <Route
-              path="/dashboard/chat-agen/:remot_id"
-              element={<ChatAgen />}
-            />
-            {/* <Routes
-              path="/dashboard"
-              element={
-                <PrivateRoute>
-                  <PrivateUser>
-                    <Dashboard />
-                  </PrivateUser>
-                </PrivateRoute>
-              }
-            /> */}
+            <Route path="/user/agent" element={<Agent />} />
+            <Route path="/user/chat-agent/:remot_id" element={<ChatAgent />} />
           </Routes>
         </BrowserRouter>
       </div>

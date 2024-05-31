@@ -35,18 +35,20 @@ function Register() {
         password: password,
       });
       if (status === 200) {
-        Swal.fire({
-          icon: "success",
-          title: "Berhasil!",
-          text: "Berhasil login.",
-          showConfirmButton: false,
-          timer: 1500,
-        });
         localStorage.setItem("token", data.data.token);
         localStorage.setItem("role", data.data.role);
         if (localStorage.getItem("role") === "agent") {
+          Swal.fire({
+            icon: "success",
+            title: "Berhasil!",
+            text: "Berhasil login.",
+            showConfirmButton: false,
+            timer: 500,
+          });
           navigate("/dashboard");
-          window.location.reload();
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
         } else {
           navigate("/");
         }

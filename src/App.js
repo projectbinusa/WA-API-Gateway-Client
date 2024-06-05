@@ -7,8 +7,9 @@ import Home from "./pages/Home";
 import Setting from "./pages/agent/Setting";
 import Customer from "./pages/agent/Customer";
 import ChatCustomer from "./pages/agent/ChatCustomer";
+import CustomerUser from "./pages/user/Customer";
+import ChatCustomerUser from "./pages/user/ChatCustomer";
 import Agent from "./pages/user/Agent";
-import ChatAgent from "./pages/user/ChatAgent";
 import ChangePassword from "./pages/agent/ChangePassword";
 import SidebarComp from "./components/Sidebar";
 
@@ -22,7 +23,8 @@ function App() {
       "/dashboard/customer",
       "/dashboard/chat-customer",
       "/user/agent",
-      "/user/chat-agent",
+      "/user/customer",
+      "/user/chat-customer",
     ];
 
     return dashboardPaths.includes(pathname);
@@ -53,8 +55,12 @@ function App() {
               path="/dashboard/chat-customer/:remot_id"
               element={<ChatCustomer />}
             />
+            <Route path="/user/customer" element={<CustomerUser />} />
+            <Route
+              path="/user/chat-customer/:remot_id"
+              element={<ChatCustomerUser />}
+            />
             <Route path="/user/agent" element={<Agent />} />
-            <Route path="/user/chat-agent/:remot_id" element={<ChatAgent />} />
           </Routes>
         </BrowserRouter>
       </div>

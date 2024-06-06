@@ -11,6 +11,7 @@ import Agent from "./pages/user/Agent";
 import ChatAgent from "./pages/user/ChatAgent";
 import ChangePassword from "./pages/agent/ChangePassword";
 import SidebarComp from "./components/Sidebar";
+import CustomerUser from "./pages/user/CustomerUser";
 
 function App() {
   const shouldShowSidebar = (pathname) => {
@@ -22,6 +23,7 @@ function App() {
       "/dashboard/customer",
       "/dashboard/chat-customer",
       "/user/agent",
+      "/user/customer",
       "/user/chat-agent",
     ];
 
@@ -54,6 +56,7 @@ function App() {
               element={<ChatCustomer />}
             />
             <Route path="/user/agent" element={<Agent />} />
+            <Route path="/user/customer" element={<CustomerUser />} />
             <Route path="/user/chat-agent/:remot_id" element={<ChatAgent />} />
           </Routes>
         </BrowserRouter>

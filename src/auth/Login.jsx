@@ -50,7 +50,17 @@ function Register() {
             window.location.reload();
           }, 500);
         } else {
-          navigate("/");
+          Swal.fire({
+            icon: "success",
+            title: "Berhasil!",
+            text: "Berhasil login.",
+            showConfirmButton: false,
+            timer: 500,
+          });
+          navigate("/user");
+          setTimeout(() => {
+            window.location.reload();
+          }, 500);
         }
       }
     } catch (error) {
